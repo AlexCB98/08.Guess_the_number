@@ -21,6 +21,8 @@ def guess_the_number():
     else:
         lives = hard()
 
+    print(f'You have {lives} attempts remaining to guess the number.')
+
     while True:
 
         guess = int(input('Make a guess: '))
@@ -37,6 +39,10 @@ def guess_the_number():
         if guess != n_to_guess:
             lives -= 1
 
+        if lives == 0:
+            print('You do not have any more guesses.')
+            break
+    return  'Game over.'
 
 
 print(guess_the_number())
