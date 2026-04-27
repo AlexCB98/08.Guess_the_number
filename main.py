@@ -12,27 +12,31 @@ def hard():
     lives = 5
     return lives
 
-def guess():
-
-    lives = 0
+def guess_the_number():
 
     difficulty = input('Choose a difficulty: Type easy/hard: ')
-    guess = int(input('Make a guess: '))
 
     if difficulty == 'easy':
-        easy()
+        lives = easy()
     else:
-        hard()
+        lives = hard()
 
-    print(f'You have {lives} attempts remaining to guess the number.')
+    while True:
 
-    if guess == n_to_guess:
-        print(f'You got it. The answer was {n_to_guess}.')
-    elif guess > n_to_guess:
-        lives -= 1
-        print('Too high.')
-    else:
-        lives -= 1
-        print('Too low.')
+        guess = int(input('Make a guess: '))
 
-print(guess())
+        print(f'You have {lives} attempts remaining to guess the number.')
+
+        if guess == n_to_guess:
+            print(f'You got it. The answer was {n_to_guess}.')
+        elif guess > n_to_guess:
+            print('Too high.')
+        else:
+            print('Too low.')
+
+        if guess != n_to_guess:
+            lives -= 1
+
+
+
+print(guess_the_number())
