@@ -13,6 +13,7 @@ def hard():
 def guess_the_number():
 
     n_to_guess = random.randint(0, 100)
+    print('I am thinking of a number between 0 and 100.')
 
     print('Easy - 10 lives / Hard - 5 lives.')
     difficulty = input('Choose a difficulty. Type easy/hard: ')
@@ -27,7 +28,7 @@ def guess_the_number():
 
     while True:
 
-        print(f'You have {lives} attempts remaining to guess the number.')
+        print(f'You have {"❤️" * lives} attempts remaining to guess the number.')
 
         guess = int(input('Make a guess: '))
 
@@ -46,11 +47,14 @@ def guess_the_number():
             print('You do not have any more guesses.')
             return  f'Game over! The number was {n_to_guess}. '
 
-do_you = input('Do you want to play ? Type y/n: ')
+while True:
 
-if do_you != 'y':
-    print('Thanks for playing this Guess The Number. ^^')
-else:
-    guess_the_number()
+    do_you = input('Do you want to play ? Type y/n: ')
+
+    if do_you != 'y':
+        print('Thanks for playing this Guess The Number. ^^')
+        break
+
+    print(guess_the_number())
 
 
