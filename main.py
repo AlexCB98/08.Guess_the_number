@@ -2,8 +2,6 @@ import random
 
 print('Welcome to the Number Guessing Game! ')
 
-n_to_guess = random.randint(0,100)
-
 def easy():
     lives = 10
     return lives
@@ -14,13 +12,18 @@ def hard():
 
 def guess_the_number():
 
+    n_to_guess = random.randint(0, 100)
+
     print('Easy - 10 lives / Hard - 5 lives.')
     difficulty = input('Choose a difficulty. Type easy/hard: ')
 
     if difficulty == 'easy':
         lives = easy()
-    else:
+    elif difficulty == 'hard':
         lives = hard()
+    else:
+        print('Invalid difficulty.')
+        return
 
     while True:
 
@@ -45,7 +48,9 @@ def guess_the_number():
 
 do_you = input('Do you want to play ? Type y/n: ')
 
-if do_you == 'y':
-    guess_the_number()
+if do_you != 'y':
+    print('Thanks for playing this Guess The Number. ^^')
 else:
-    print('Thanks for being here. ^^')
+    guess_the_number()
+
+
