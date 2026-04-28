@@ -14,23 +14,23 @@ def hard():
 
 def guess_the_number():
 
-    difficulty = input('Choose a difficulty: Type easy/hard: ')
+    print('Easy - 10 lives / Hard - 5 lives.')
+    difficulty = input('Choose a difficulty. Type easy/hard: ')
 
     if difficulty == 'easy':
         lives = easy()
     else:
         lives = hard()
 
-    print(f'You have {lives} attempts remaining to guess the number.')
-
     while True:
-
-        guess = int(input('Make a guess: '))
 
         print(f'You have {lives} attempts remaining to guess the number.')
 
+        guess = int(input('Make a guess: '))
+
         if guess == n_to_guess:
             print(f'You got it. The answer was {n_to_guess}.')
+            return 'You win! '
         elif guess > n_to_guess:
             print('Too high.')
         else:
@@ -41,8 +41,11 @@ def guess_the_number():
 
         if lives == 0:
             print('You do not have any more guesses.')
-            break
-    return  'Game over.'
+            return  f'Game over! The number was {n_to_guess}. '
 
+do_you = input('Do you want to play ? Type y/n: ')
 
-print(guess_the_number())
+if do_you == 'y':
+    guess_the_number()
+else:
+    print('Thanks for being here. ^^')
